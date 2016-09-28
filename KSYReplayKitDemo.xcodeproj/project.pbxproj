@@ -13,7 +13,49 @@
 		06CA4B431D9BFA24006F3AD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CA4B411D9BFA24006F3AD3 /* Main.storyboard */; };
 		06CA4B451D9BFA24006F3AD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06CA4B441D9BFA24006F3AD3 /* Assets.xcassets */; };
 		06CA4B481D9BFA24006F3AD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CA4B461D9BFA24006F3AD3 /* LaunchScreen.storyboard */; };
+		06CA4B501D9BFB99006F3AD3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 06CA4B4F1D9BFB99006F3AD3 /* README.md */; };
+		06CA4B591D9C0203006F3AD3 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CA4B581D9C0203006F3AD3 /* ReplayKit.framework */; };
+		06CA4B5D1D9C0203006F3AD3 /* MovieClipHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA4B5C1D9C0203006F3AD3 /* MovieClipHandler.m */; };
+		06CA4B601D9C0203006F3AD3 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA4B5F1D9C0203006F3AD3 /* SampleHandler.m */; };
+		06CA4B671D9C0203006F3AD3 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CA4B581D9C0203006F3AD3 /* ReplayKit.framework */; };
+		06CA4B691D9C0203006F3AD3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CA4B681D9C0203006F3AD3 /* UIKit.framework */; };
+		06CA4B6D1D9C0203006F3AD3 /* BroadcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA4B6C1D9C0203006F3AD3 /* BroadcastViewController.m */; };
+		06CA4B701D9C0203006F3AD3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06CA4B6E1D9C0203006F3AD3 /* MainInterface.storyboard */; };
+		06CA4B741D9C0203006F3AD3 /* KSYRKUploadExtUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06CA4B661D9C0203006F3AD3 /* KSYRKUploadExtUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		06CA4B771D9C0203006F3AD3 /* KSYRKUploadExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06CA4B561D9C0203006F3AD3 /* KSYRKUploadExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06CA4B721D9C0203006F3AD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06CA4B2D1D9BFA24006F3AD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06CA4B651D9C0203006F3AD3;
+			remoteInfo = KSYRKUploadExtUI;
+		};
+		06CA4B751D9C0203006F3AD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06CA4B2D1D9BFA24006F3AD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06CA4B551D9C0203006F3AD3;
+			remoteInfo = KSYRKUploadExt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		06CA4B7E1D9C0203006F3AD3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				06CA4B771D9C0203006F3AD3 /* KSYRKUploadExt.appex in Embed App Extensions */,
+				06CA4B741D9C0203006F3AD3 /* KSYRKUploadExtUI.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06CA4B351D9BFA24006F3AD3 /* KSYReplayKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSYReplayKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +68,20 @@
 		06CA4B441D9BFA24006F3AD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06CA4B471D9BFA24006F3AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06CA4B491D9BFA24006F3AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06CA4B4F1D9BFB99006F3AD3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		06CA4B561D9C0203006F3AD3 /* KSYRKUploadExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KSYRKUploadExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		06CA4B581D9C0203006F3AD3 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		06CA4B5B1D9C0203006F3AD3 /* MovieClipHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieClipHandler.h; sourceTree = "<group>"; };
+		06CA4B5C1D9C0203006F3AD3 /* MovieClipHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieClipHandler.m; sourceTree = "<group>"; };
+		06CA4B5E1D9C0203006F3AD3 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		06CA4B5F1D9C0203006F3AD3 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		06CA4B611D9C0203006F3AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06CA4B661D9C0203006F3AD3 /* KSYRKUploadExtUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KSYRKUploadExtUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		06CA4B681D9C0203006F3AD3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		06CA4B6B1D9C0203006F3AD3 /* BroadcastViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BroadcastViewController.h; sourceTree = "<group>"; };
+		06CA4B6C1D9C0203006F3AD3 /* BroadcastViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BroadcastViewController.m; sourceTree = "<group>"; };
+		06CA4B6F1D9C0203006F3AD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		06CA4B711D9C0203006F3AD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,13 +92,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06CA4B531D9C0203006F3AD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06CA4B591D9C0203006F3AD3 /* ReplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06CA4B631D9C0203006F3AD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06CA4B671D9C0203006F3AD3 /* ReplayKit.framework in Frameworks */,
+				06CA4B691D9C0203006F3AD3 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		06CA4B2C1D9BFA24006F3AD3 = {
 			isa = PBXGroup;
 			children = (
+				06CA4B4F1D9BFB99006F3AD3 /* README.md */,
 				06CA4B371D9BFA24006F3AD3 /* KSYReplayKitDemo */,
+				06CA4B5A1D9C0203006F3AD3 /* KSYRKUploadExt */,
+				06CA4B6A1D9C0203006F3AD3 /* KSYRKUploadExtUI */,
+				06CA4B571D9C0203006F3AD3 /* Frameworks */,
 				06CA4B361D9BFA24006F3AD3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				06CA4B351D9BFA24006F3AD3 /* KSYReplayKitDemo.app */,
+				06CA4B561D9C0203006F3AD3 /* KSYRKUploadExt.appex */,
+				06CA4B661D9C0203006F3AD3 /* KSYRKUploadExtUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +158,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		06CA4B571D9C0203006F3AD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06CA4B581D9C0203006F3AD3 /* ReplayKit.framework */,
+				06CA4B681D9C0203006F3AD3 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06CA4B5A1D9C0203006F3AD3 /* KSYRKUploadExt */ = {
+			isa = PBXGroup;
+			children = (
+				06CA4B5B1D9C0203006F3AD3 /* MovieClipHandler.h */,
+				06CA4B5C1D9C0203006F3AD3 /* MovieClipHandler.m */,
+				06CA4B5E1D9C0203006F3AD3 /* SampleHandler.h */,
+				06CA4B5F1D9C0203006F3AD3 /* SampleHandler.m */,
+				06CA4B611D9C0203006F3AD3 /* Info.plist */,
+			);
+			path = KSYRKUploadExt;
+			sourceTree = "<group>";
+		};
+		06CA4B6A1D9C0203006F3AD3 /* KSYRKUploadExtUI */ = {
+			isa = PBXGroup;
+			children = (
+				06CA4B6B1D9C0203006F3AD3 /* BroadcastViewController.h */,
+				06CA4B6C1D9C0203006F3AD3 /* BroadcastViewController.m */,
+				06CA4B6E1D9C0203006F3AD3 /* MainInterface.storyboard */,
+				06CA4B711D9C0203006F3AD3 /* Info.plist */,
+			);
+			path = KSYRKUploadExtUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,15 +200,52 @@
 				06CA4B311D9BFA24006F3AD3 /* Sources */,
 				06CA4B321D9BFA24006F3AD3 /* Frameworks */,
 				06CA4B331D9BFA24006F3AD3 /* Resources */,
+				06CA4B7E1D9C0203006F3AD3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				06CA4B731D9C0203006F3AD3 /* PBXTargetDependency */,
+				06CA4B761D9C0203006F3AD3 /* PBXTargetDependency */,
 			);
 			name = KSYReplayKitDemo;
 			productName = KSYReplayKitDemo;
 			productReference = 06CA4B351D9BFA24006F3AD3 /* KSYReplayKitDemo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		06CA4B551D9C0203006F3AD3 /* KSYRKUploadExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06CA4B7B1D9C0203006F3AD3 /* Build configuration list for PBXNativeTarget "KSYRKUploadExt" */;
+			buildPhases = (
+				06CA4B521D9C0203006F3AD3 /* Sources */,
+				06CA4B531D9C0203006F3AD3 /* Frameworks */,
+				06CA4B541D9C0203006F3AD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KSYRKUploadExt;
+			productName = KSYRKUploadExt;
+			productReference = 06CA4B561D9C0203006F3AD3 /* KSYRKUploadExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		06CA4B651D9C0203006F3AD3 /* KSYRKUploadExtUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06CA4B781D9C0203006F3AD3 /* Build configuration list for PBXNativeTarget "KSYRKUploadExtUI" */;
+			buildPhases = (
+				06CA4B621D9C0203006F3AD3 /* Sources */,
+				06CA4B631D9C0203006F3AD3 /* Frameworks */,
+				06CA4B641D9C0203006F3AD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KSYRKUploadExtUI;
+			productName = KSYRKUploadExtUI;
+			productReference = 06CA4B661D9C0203006F3AD3 /* KSYRKUploadExtUI.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -109,6 +257,16 @@
 				ORGANIZATIONNAME = ksyun;
 				TargetAttributes = {
 					06CA4B341D9BFA24006F3AD3 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = ZGJ54Q7R45;
+						ProvisioningStyle = Automatic;
+					};
+					06CA4B551D9C0203006F3AD3 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = ZGJ54Q7R45;
+						ProvisioningStyle = Automatic;
+					};
+					06CA4B651D9C0203006F3AD3 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = ZGJ54Q7R45;
 						ProvisioningStyle = Automatic;
@@ -129,6 +287,8 @@
 			projectRoot = "";
 			targets = (
 				06CA4B341D9BFA24006F3AD3 /* KSYReplayKitDemo */,
+				06CA4B551D9C0203006F3AD3 /* KSYRKUploadExt */,
+				06CA4B651D9C0203006F3AD3 /* KSYRKUploadExtUI */,
 			);
 		};
 /* End PBXProject section */
@@ -144,6 +304,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06CA4B541D9C0203006F3AD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06CA4B641D9C0203006F3AD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06CA4B701D9C0203006F3AD3 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -153,11 +328,42 @@
 			files = (
 				06CA4B401D9BFA24006F3AD3 /* ViewController.m in Sources */,
 				06CA4B3D1D9BFA24006F3AD3 /* AppDelegate.m in Sources */,
+				06CA4B501D9BFB99006F3AD3 /* README.md in Sources */,
 				06CA4B3A1D9BFA24006F3AD3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06CA4B521D9C0203006F3AD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06CA4B601D9C0203006F3AD3 /* SampleHandler.m in Sources */,
+				06CA4B5D1D9C0203006F3AD3 /* MovieClipHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06CA4B621D9C0203006F3AD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06CA4B6D1D9C0203006F3AD3 /* BroadcastViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06CA4B731D9C0203006F3AD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06CA4B651D9C0203006F3AD3 /* KSYRKUploadExtUI */;
+			targetProxy = 06CA4B721D9C0203006F3AD3 /* PBXContainerItemProxy */;
+		};
+		06CA4B761D9C0203006F3AD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06CA4B551D9C0203006F3AD3 /* KSYRKUploadExt */;
+			targetProxy = 06CA4B751D9C0203006F3AD3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		06CA4B411D9BFA24006F3AD3 /* Main.storyboard */ = {
@@ -174,6 +380,14 @@
 				06CA4B471D9BFA24006F3AD3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		06CA4B6E1D9C0203006F3AD3 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06CA4B6F1D9C0203006F3AD3 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -293,6 +507,54 @@
 			};
 			name = Release;
 		};
+		06CA4B791D9C0203006F3AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYRKUploadExtUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYReplayKitDemo.KSYRKUploadExtUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		06CA4B7A1D9C0203006F3AD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYRKUploadExtUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYReplayKitDemo.KSYRKUploadExtUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		06CA4B7C1D9C0203006F3AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYRKUploadExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYReplayKitDemo.KSYRKUploadExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		06CA4B7D1D9C0203006F3AD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = ZGJ54Q7R45;
+				INFOPLIST_FILE = KSYRKUploadExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksyun.ios.KSYReplayKitDemo.KSYRKUploadExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -310,6 +572,23 @@
 			buildConfigurations = (
 				06CA4B4D1D9BFA24006F3AD3 /* Debug */,
 				06CA4B4E1D9BFA24006F3AD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06CA4B781D9C0203006F3AD3 /* Build configuration list for PBXNativeTarget "KSYRKUploadExtUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CA4B791D9C0203006F3AD3 /* Debug */,
+				06CA4B7A1D9C0203006F3AD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		06CA4B7B1D9C0203006F3AD3 /* Build configuration list for PBXNativeTarget "KSYRKUploadExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06CA4B7C1D9C0203006F3AD3 /* Debug */,
+				06CA4B7D1D9C0203006F3AD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

@@ -34,8 +34,18 @@ App扩展跟普通的App不同, 它不能单独发布, 需要内置在一个普�
 * 容器App : 本身与录屏直播没有直接关系, 仅仅提供录屏App扩展的发布去掉
 * 录屏App扩展 : 实现录屏和直播的主要功能
 
-### 
+### 录屏App扩展 
+直播App中需要嵌入两个扩展
+
+* Broadcast UI Extension     提供类似用户登录等配置选项的界面
+* Broadcast Upload Extension 接收图像和音频数据, 进行直播
+
+集成KSYLive_iOS的工作主要在Upload扩展的代码中进行
 
 ### [KSYLive_iOS](https://github.com/ksvc/KSYLive_iOS)
 KSYLive_iOS 是一个提供了直播相关的功能的SDK
 
+## 开发步骤
+1. 创建容器App 比如Demo中的 KSYReplayKitDemo
+2. 在容器App中添加 Broadcast Upload Extension的target, xcode 会自动同步添加对应的UI extension
+3. 编辑 Podfile, 将
