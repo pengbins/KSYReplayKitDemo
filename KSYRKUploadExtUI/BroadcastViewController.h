@@ -10,5 +10,7 @@
 #import <ReplayKit/ReplayKit.h>
 
 @interface BroadcastViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *rtmpUrl;
+
 
 @end

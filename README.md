@@ -30,7 +30,7 @@ App扩展跟普通的App不同, 它不能单独发布, 需要内置在一个普�
 扩展由宿主App发起请求来启动, 与宿主App进行交互.
 
 总结来说以上提到了如下三个概念:
-* 宿主App : 比如被录屏的游戏, 
+* 宿主App : 比如被录屏的游戏
 * 容器App : 本身与录屏直播没有直接关系, 仅仅提供录屏App扩展的发布去掉
 * 录屏App扩展 : 实现录屏和直播的主要功能
 
@@ -47,5 +47,15 @@ KSYLive_iOS 是一个提供了直播相关的功能的SDK
 
 ## 开发步骤
 1. 创建容器App 比如Demo中的 KSYReplayKitDemo
-2. 在容器App中添加 Broadcast Upload Extension的target, xcode 会自动同步添加对应的UI extension
-3. 编辑 Podfile, 将
+
+2. 在容器App中添加 Broadcast Upload Extension的target, Xcode 会自动同步添加对应的UI扩展
+
+3. 修改Upload扩展中的配置, Xcode 的默认模板是用于处理压缩好的mp4文件, 在本demo中我们用另一种处理原始图像和声音数据的方式, 自己来做压缩. 
+    
+需要修改Upload扩展的Info.plist文件 中的 NSExtension下的子项目:
+
+* 修改RPBroadcastProcessMode为RPBroadcastProcessModeSampleBuffer
+* NSExtensionPrincipalClass 改为 SampleHandler
+
+4. 编辑 Podfile, 添加KSYLive_iOS的依赖, 执行pod install后 改为打开 workspace.
+
