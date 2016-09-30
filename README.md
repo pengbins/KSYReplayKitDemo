@@ -45,7 +45,7 @@ App扩展跟普通的App不同, 它不能单独发布, 需要内置在一个普�
 ### [KSYLive_iOS](https://github.com/ksvc/KSYLive_iOS)
 KSYLive_iOS 是一个提供了直播相关的功能的SDK
 
-## 开发步骤
+## 准备工作
 1. 创建容器App 比如Demo中的 KSYReplayKitDemo
 
 2. 在容器App中添加 Broadcast Upload Extension的target, Xcode 会自动同步添加对应的UI扩展
@@ -59,3 +59,26 @@ KSYLive_iOS 是一个提供了直播相关的功能的SDK
 
 4. 编辑 Podfile, 添加KSYLive_iOS的依赖, 执行pod install后 改为打开 workspace.
 
+至此, 准备工作就做好了, 可以开始写代码了. 
+Upload扩展的入口类SampleHandler提供了一组回调函数, 用于处理直播开始结束,暂停恢复, 和接收数据.
+
+* broadcastStartedWithSetupInfo: / broadcastFinished  
+* broadcastPaused / broadcastResumed 
+* processSampleBuffer: withType:
+
+因此整个集成过程就是在以上回调函数中, 调用直播SDK中对应的函数.
+
+需要注意的是 SampleHandler 仅仅是提供事件的回调, 
+本身在每个事件回调发生时都会重新构造一个SampleHandler的实例, 所以不能直接将推流的状态保存在其中.
+而需要另外提供一个单例的推流类, 在demo中为KSYRKStreamerKit.
+
+## 集成工作
+
+1. 添加单例推流类 KSYRKStreamerKit
+KSYRKStreamerKit 中主要是保存 KSYStreamerBase 和 KSYAudioMixer的实例, 
+并以单例的方式在扩展的运行过程中提供对KSYStreamerBase的访问.
+
+2. 在SampleHandler类的各个回调接口中通过KSYRKStreamerKit 进行推流
+
+* broadcastStartedWithSetupInfo 接口启动推流, 从setupInfo 得到推流的配置信息,比如rtmp的url.
+* processSampleBuffer 接口将收到的图像和音频的sampleBuffer 送入 KSYRKStreamerKit

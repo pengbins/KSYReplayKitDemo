@@ -4,7 +4,6 @@ use_frameworks!
 
 target 'KSYRKUploadExt' do
 	pod 'GPUImage'
-	pod 'libksygpulive/KSYGPUResource', :path => '../proj/KSYLive_iOS/'
 	pod 'libksygpulive/libksygpulive',  :path => '../proj/KSYLive_iOS/'
 end
 

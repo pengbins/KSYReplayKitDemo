@@ -33,12 +33,12 @@
     
     // Service specific broadcast data example which will be supplied to the process extension during broadcast
     NSString *userID = @"user1";
-    NSString *endpointURL = @"http://broadcastURL_example/stream1/upload";
+    NSString *endpointURL = _rtmpUrl.text;
     NSDictionary *setupInfo = @{ @"userID" : userID, @"endpointURL" : endpointURL };
     
     // Set broadcast settings
     RPBroadcastConfiguration *broadcastConfig = [[RPBroadcastConfiguration alloc] init];
-    broadcastConfig.clipDuration = 5.0; // deliver movie clips every 5 seconds
+    broadcastConfig.clipDuration = 150.0; // deliver movie clips every 5 seconds
     
     // Tell ReplayKit that the extension is finished setting up and can begin broadcasting
     [self.extensionContext completeRequestWithBroadcastURL:broadcastURL broadcastConfiguration:broadcastConfig setupInfo:setupInfo];
