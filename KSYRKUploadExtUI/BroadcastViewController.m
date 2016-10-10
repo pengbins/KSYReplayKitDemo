@@ -27,19 +27,19 @@
 
 // Called when the user has finished interacting with the view controller and a broadcast stream can start
 - (void)userDidFinishSetup {
-    
     // Broadcast url that will be returned to the application
     NSURL *broadcastURL = [NSURL URLWithString: _rtmpUrl.text];
-    
     // Service specific broadcast data example which will be supplied to the process extension during broadcast
     NSString *userID = @"user1";
     NSString *endpointURL = _rtmpUrl.text;
-    NSDictionary *setupInfo = @{ @"userID" : userID, @"endpointURL" : endpointURL };
+    NSInteger idx = _videoResolution.selectedSegmentIndex;
+    NSString *videoRes    = [_videoResolution titleForSegmentAtIndex:idx];
+    NSDictionary *setupInfo = @{ @"userID" : userID,
+                                 @"endpointURL" : endpointURL,
+                                 @"videoResolution" : videoRes};
     
     // Set broadcast settings
     RPBroadcastConfiguration *broadcastConfig = [[RPBroadcastConfiguration alloc] init];
-    broadcastConfig.clipDuration = 150.0; // deliver movie clips every 5 seconds
-    
     // Tell ReplayKit that the extension is finished setting up and can begin broadcasting
     [self.extensionContext completeRequestWithBroadcastURL:broadcastURL broadcastConfiguration:broadcastConfig setupInfo:setupInfo];
 }

@@ -22,11 +22,14 @@
     for ( NSString* info in  setupInfo.allKeys) {
         NSLog(@"cfg: %@ = %@",info, [setupInfo valueForKey:info] );
     }
-    NSString * str = (NSString*)[setupInfo valueForKey:@"endpointURL"];
     KSYRKStreamerKit* kit =[KSYRKStreamerKit sharedInstance];
+    // setup video resolution
+    kit.videoResolution = (NSString*)[setupInfo valueForKey:@"videoResolution"];
+    
+    // start stream
+    NSString * str = (NSString*)[setupInfo valueForKey:@"endpointURL"];
     NSURL * url= [NSURL URLWithString:str];
-    kit.rtmpUrl = url;
-    [kit.streamerBase startStream: url];
+    [kit startStream: url];
 }
 
 - (void)broadcastPaused {
@@ -60,6 +63,7 @@
         default:
             break;
     }
+    NSLog(@"fps: %f", kit.streamerBase.encodingFPS);
 }
 
 @end

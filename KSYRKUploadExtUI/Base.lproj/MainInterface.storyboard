@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ojR-XQ-Fu1">
@@ -24,45 +26,64 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RtmpURL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASE-ci-nof">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推流地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASE-ci-nof">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-DN-GYJ">
-                                <frame key="frameInset" minX="16" minY="100" width="120" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-DN-GYJ">
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="开始直播"/>
+                                <state key="normal" title="_开始直播_"/>
                                 <connections>
                                     <action selector="onStartBtn:" destination="ObA-dk-sSI" eventType="touchUpInside" id="LLF-lp-XnF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBw-OM-OhZ">
-                                <frame key="frameInset" minX="184" minY="100" width="120" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBw-OM-OhZ">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="取消直播"/>
+                                <state key="normal" title="_取消直播_"/>
                                 <connections>
                                     <action selector="onCancelBtn:" destination="ObA-dk-sSI" eventType="touchUpInside" id="rtX-p9-tvR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分辨率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72D-bh-rlJ">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="060-P0-JB9">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="DA2-Lw-yAq"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="360p"/>
+                                    <segment title="540p"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ojR-XQ-Fu1" firstAttribute="leading" secondItem="ASE-ci-nof" secondAttribute="trailing" constant="16" id="19v-Ju-lcc"/>
-                            <constraint firstItem="ojR-XQ-Fu1" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="8" symbolic="YES" id="2d4-Vd-owE"/>
-                            <constraint firstItem="ojR-XQ-Fu1" firstAttribute="trailing" secondItem="zMn-AG-sqS" secondAttribute="trailingMargin" id="EH2-88-IKN"/>
+                            <constraint firstItem="ojR-XQ-Fu1" firstAttribute="trailing" secondItem="zMn-AG-sqS" secondAttribute="trailingMargin" id="223-Qm-mfz"/>
+                            <constraint firstItem="060-P0-JB9" firstAttribute="centerY" secondItem="72D-bh-rlJ" secondAttribute="centerY" id="2Rx-He-5ke"/>
+                            <constraint firstItem="060-P0-JB9" firstAttribute="baseline" secondItem="72D-bh-rlJ" secondAttribute="firstBaseline" id="AAO-9u-91D"/>
+                            <constraint firstItem="ojR-XQ-Fu1" firstAttribute="trailing" secondItem="YBw-OM-OhZ" secondAttribute="trailing" id="DAt-ag-SEE"/>
+                            <constraint firstItem="ojR-XQ-Fu1" firstAttribute="leading" secondItem="ASE-ci-nof" secondAttribute="trailing" constant="14" id="IIC-5t-cyJ"/>
                             <constraint firstItem="yhP-DN-GYJ" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" id="L6w-wf-5fb"/>
-                            <constraint firstItem="YBw-OM-OhZ" firstAttribute="trailing" secondItem="ojR-XQ-Fu1" secondAttribute="trailing" id="hes-Qv-V1l"/>
-                            <constraint firstItem="ASE-ci-nof" firstAttribute="centerY" secondItem="ojR-XQ-Fu1" secondAttribute="centerY" id="hjI-Ob-ONx"/>
+                            <constraint firstItem="060-P0-JB9" firstAttribute="leading" secondItem="ojR-XQ-Fu1" secondAttribute="leading" id="Qhx-Dv-rKv"/>
+                            <constraint firstItem="72D-bh-rlJ" firstAttribute="leading" secondItem="ASE-ci-nof" secondAttribute="leading" id="VlZ-lf-PsT"/>
+                            <constraint firstItem="ASE-ci-nof" firstAttribute="leading" secondItem="yhP-DN-GYJ" secondAttribute="leading" id="XuV-2F-Soa"/>
+                            <constraint firstItem="ASE-ci-nof" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="8" symbolic="YES" id="dLU-TK-OCl"/>
                             <constraint firstItem="YBw-OM-OhZ" firstAttribute="baseline" secondItem="yhP-DN-GYJ" secondAttribute="baseline" id="kFf-1O-guQ"/>
-                            <constraint firstItem="ASE-ci-nof" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" constant="-2" id="pwb-VA-7jp"/>
+                            <constraint firstItem="72D-bh-rlJ" firstAttribute="top" secondItem="ASE-ci-nof" secondAttribute="bottom" constant="11" id="rIr-fn-aJG"/>
                             <constraint firstAttribute="bottom" secondItem="yhP-DN-GYJ" secondAttribute="bottom" constant="20" symbolic="YES" id="vEe-BN-N1L"/>
+                            <constraint firstItem="ojR-XQ-Fu1" firstAttribute="centerY" secondItem="ASE-ci-nof" secondAttribute="centerY" id="vXp-ah-1tb"/>
+                            <constraint firstItem="060-P0-JB9" firstAttribute="firstBaseline" secondItem="72D-bh-rlJ" secondAttribute="baseline" id="z4r-cM-nH1"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="150"/>
+                    <size key="freeformSize" width="320" height="250"/>
                     <connections>
                         <outlet property="rtmpUrl" destination="ojR-XQ-Fu1" id="foy-pU-NOr"/>
+                        <outlet property="videoResolution" destination="060-P0-JB9" id="zAa-jI-TbU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>

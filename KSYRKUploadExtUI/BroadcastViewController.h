@@ -10,7 +10,9 @@
 #import <ReplayKit/ReplayKit.h>
 
 @interface BroadcastViewController : UIViewController
+/// rtmp 地址
 @property (weak, nonatomic) IBOutlet UITextField *rtmpUrl;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *videoResolution;
 
 @end

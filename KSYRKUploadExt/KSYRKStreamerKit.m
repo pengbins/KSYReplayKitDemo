@@ -10,6 +10,11 @@
 #import "KSYRKStreamerKit.h"
 #import "libksygpulive/libksygpulive.h"
 
+@interface KSYRKStreamerKit(){
+}
+
+@end
+
 @implementation KSYRKStreamerKit
 
 + (KSYRKStreamerKit*)sharedInstance {
@@ -49,6 +54,41 @@
     [self rmObservers];
 }
 
+
+/**
+ @abstract   开始向url对应的地址推流
+ @param      url 推流地址
+ */
+- (void) startStream : (NSURL*) url {
+    _rtmpUrl = url;
+    _streamerBase.encodeDimension = [self getVideoDimension];
+    [_streamerBase startStream:url];
+}
+
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+- (CGSize) getVideoDimension{
+    NSString * str = _videoResolution;
+    if (IS_IPHONE) {
+        if ([str isEqualToString:@"540p"]) {
+            return CGSizeMake(960, 540);
+        }
+        else {
+            return CGSizeMake(640, 360);
+        }
+    }
+    else {
+        if ([str isEqualToString:@"540p"]) {
+            return CGSizeMake(720, 540);
+        }
+        else {
+            return CGSizeMake(480, 360);
+        }
+    }
+    return CGSizeMake(0, 0);
+}
+
 - (void) addObservers {
     //KSYStreamer state changes
     NSNotificationCenter* dc = [NSNotificationCenter defaultCenter];
@@ -74,7 +114,8 @@
 }
 - (void) onStreamError:(KSYStreamErrorCode) errCode{
     NSLog(@"stream Error %@", [_streamerBase getCurKSYStreamErrorCodeName]);
-    if (errCode == KSYStreamErrorCode_CONNECT_BREAK) {
+    if (errCode == KSYStreamErrorCode_CONNECT_BREAK ||
+        errCode == KSYStreamErrorCode_ENCODE_FRAMES_FAILED) {
         // Reconnect
         dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
         dispatch_after(delay, dispatch_get_main_queue(), ^{
