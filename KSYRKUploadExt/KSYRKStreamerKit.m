@@ -62,6 +62,7 @@
 - (void) startStream : (NSURL*) url {
     _rtmpUrl = url;
     _streamerBase.encodeDimension = [self getVideoDimension];
+    _streamerBase.videoCodec = [self getVideoCodec];
     [_streamerBase startStream:url];
 }
 
@@ -88,7 +89,14 @@
     }
     return CGSizeMake(0, 0);
 }
-
+- (KSYVideoCodec) getVideoCodec{
+    if ([_videoCodec isEqualToString:@"hard"]) {
+        return KSYVideoCodec_AUTO;
+    }
+    else {
+        return KSYVideoCodec_X264;
+    }
+}
 - (void) addObservers {
     //KSYStreamer state changes
     NSNotificationCenter* dc = [NSNotificationCenter defaultCenter];

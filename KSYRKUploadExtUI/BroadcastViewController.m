@@ -34,9 +34,14 @@
     NSString *endpointURL = _rtmpUrl.text;
     NSInteger idx = _videoResolution.selectedSegmentIndex;
     NSString *videoRes    = [_videoResolution titleForSegmentAtIndex:idx];
+    
+    idx = _videoCodec.selectedSegmentIndex;
+    NSString *videoCodec    = [_videoCodec titleForSegmentAtIndex:idx];
+    
     NSDictionary *setupInfo = @{ @"userID" : userID,
                                  @"endpointURL" : endpointURL,
-                                 @"videoResolution" : videoRes};
+                                 @"videoResolution" : videoRes,
+                                 @"videoCodec" : videoCodec};
     
     // Set broadcast settings
     RPBroadcastConfiguration *broadcastConfig = [[RPBroadcastConfiguration alloc] init];

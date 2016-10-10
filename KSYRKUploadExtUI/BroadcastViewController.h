@@ -15,4 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *videoResolution;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *videoCodec;
+
 @end

@@ -25,7 +25,7 @@
     KSYRKStreamerKit* kit =[KSYRKStreamerKit sharedInstance];
     // setup video resolution
     kit.videoResolution = (NSString*)[setupInfo valueForKey:@"videoResolution"];
-    
+    kit.videoCodec = (NSString*)[setupInfo valueForKey:@"videoCodec"];
     // start stream
     NSString * str = (NSString*)[setupInfo valueForKey:@"endpointURL"];
     NSURL * url= [NSURL URLWithString:str];
@@ -55,15 +55,17 @@
             [kit.streamerBase processVideoSampleBuffer:sampleBuffer];
             break;
         case RPSampleBufferTypeAudioApp:
+//            NSLog(@"appaudio %@",sampleBuffer);
 //            [kit mixAudio:sampleBuffer to:kit.appTrack];
             break;
         case RPSampleBufferTypeAudioMic:
+//            NSLog(@"micaudio %@",sampleBuffer);
             [kit mixAudio:sampleBuffer to:kit.micTrack];
             break;
         default:
             break;
     }
-    NSLog(@"fps: %f", kit.streamerBase.encodingFPS);
+    NSLog(@"fps: %f %d", kit.streamerBase.encodingFPS, sampleBufferType);
 }
 
 @end

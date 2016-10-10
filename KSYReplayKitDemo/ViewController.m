@@ -7,6 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <ReplayKit/ReplayKit.h>
+#import <GPUImage/GPUImage.h>
 #import "ViewController.h"
 
 #define SYSTEM_VERSION_GE_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -17,6 +18,8 @@
 @property (nonatomic, weak) RPBroadcastController *broadcastController;
 @property (nonatomic, strong) UIWindow *overlayWindow;
 @property NSTimer *timer;
+@property (nonatomic, strong) GPUImageView * cameraView;
+@property (nonatomic, strong) GPUImageVideoCamera * vCapDev;
 @end
 
 @implementation ViewController
@@ -29,6 +32,7 @@
     _btnShare = [[UIButton alloc] init];
     [self.view addSubview:_btnShare];
     _btnShare.frame = CGRectMake(30, 130, 164, 164);
+    [_btnShare setTitle:@"share" forState:UIControlStateNormal];
     _btnShare.backgroundColor = [UIColor redColor];
     [_btnShare addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchDown];
     _timer =  [NSTimer scheduledTimerWithTimeInterval:0.2
@@ -36,6 +40,8 @@
                                              selector:@selector(onTimer:)
                                              userInfo:nil
                                               repeats:YES];
+    
+    [self setupCamera];
 }
 
 - (void)setupBroadcastUI {
@@ -47,6 +53,18 @@
     self.overlayWindow.rootViewController = rootViewController;
 }
 
+- (void) setupCamera {
+    _cameraView = [[GPUImageView alloc] init];
+    [self.view addSubview:_cameraView];
+    _cameraView.frame  = CGRectMake(30, 330, 164, 164);
+    
+    _vCapDev = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetLow cameraPosition:AVCaptureDevicePositionFront];
+    
+    _vCapDev.outputImageOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    [_vCapDev addAudioInputsAndOutputs];
+    [_vCapDev addTarget:_cameraView];
+    [_vCapDev startCameraCapture];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -55,17 +73,17 @@
 
 
 - (void)onTimer:(NSTimer *)theTimer{
-    static int pos = 0;
-    int wdt = self.view.frame.size.width - 164 - 30;
-    pos = (pos +1)% wdt;
-    CGRect btnRect = _btnShare.frame;
-    btnRect.origin.x = pos + 30;
-    _btnShare.frame = btnRect;
-    
-    if (self.broadcastController &&  pos % 10 == 0) {
-        NSLog(@"broadcast %d %@", self.broadcastController.broadcasting,
-              self.broadcastController.broadcastURL.absoluteString);
-    }
+//    static int pos = 0;
+//    int wdt = self.view.frame.size.width - 164 - 30;
+//    pos = (pos +1)% wdt;
+//    CGRect btnRect = _btnShare.frame;
+//    btnRect.origin.x = pos + 30;
+//    _btnShare.frame = btnRect;
+//    
+//    if (self.broadcastController &&  pos % 10 == 0) {
+//        NSLog(@"broadcast %d %@", self.broadcastController.broadcasting,
+//              self.broadcastController.broadcastURL.absoluteString);
+//    }
 }
 
 - (void)pressBtn: (UIButton*)btn {

@@ -20,6 +20,8 @@
 
 /** 直播视频的分辨率 (字符串解析为宽x高)*/
 @property (nonatomic, assign) NSString     *videoResolution;
+/** 视频编码器 */
+@property (nonatomic, assign) NSString     *videoCodec;
 
 /**
  @abstract   获取初始化时创建的底层推流工具
