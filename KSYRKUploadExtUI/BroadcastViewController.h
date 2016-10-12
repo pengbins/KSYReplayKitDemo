@@ -13,8 +13,6 @@
 /// rtmp 地址
 @property (weak, nonatomic) IBOutlet UITextField *rtmpUrl;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *videoResolution;
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *videoCodec;
 
 @end

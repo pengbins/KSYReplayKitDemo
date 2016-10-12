@@ -32,15 +32,12 @@
     // Service specific broadcast data example which will be supplied to the process extension during broadcast
     NSString *userID = @"user1";
     NSString *endpointURL = _rtmpUrl.text;
-    NSInteger idx = _videoResolution.selectedSegmentIndex;
-    NSString *videoRes    = [_videoResolution titleForSegmentAtIndex:idx];
     
-    idx = _videoCodec.selectedSegmentIndex;
+    NSInteger idx = _videoCodec.selectedSegmentIndex;
     NSString *videoCodec    = [_videoCodec titleForSegmentAtIndex:idx];
     
     NSDictionary *setupInfo = @{ @"userID" : userID,
                                  @"endpointURL" : endpointURL,
-                                 @"videoResolution" : videoRes,
                                  @"videoCodec" : videoCodec};
     
     // Set broadcast settings

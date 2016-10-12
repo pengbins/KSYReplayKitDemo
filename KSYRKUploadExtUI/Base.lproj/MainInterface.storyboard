@@ -43,25 +43,11 @@
                                     <action selector="onCancelBtn:" destination="ObA-dk-sSI" eventType="touchUpInside" id="rtX-p9-tvR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分辨率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72D-bh-rlJ">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频编码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdw-ZC-V4i">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="060-P0-JB9">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="DA2-Lw-yAq"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="360p"/>
-                                    <segment title="540p"/>
-                                </segments>
-                            </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ygN-x6-aa1">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="tO9-q1-dYr"/>
@@ -76,18 +62,14 @@
                         <constraints>
                             <constraint firstItem="ojR-XQ-Fu1" firstAttribute="trailing" secondItem="zMn-AG-sqS" secondAttribute="trailingMargin" id="223-Qm-mfz"/>
                             <constraint firstItem="ojR-XQ-Fu1" firstAttribute="trailing" secondItem="YBw-OM-OhZ" secondAttribute="trailing" id="DAt-ag-SEE"/>
-                            <constraint firstItem="72D-bh-rlJ" firstAttribute="leading" secondItem="ASE-ci-nof" secondAttribute="leading" id="F5I-eK-bHw"/>
+                            <constraint firstItem="hdw-ZC-V4i" firstAttribute="leading" secondItem="ASE-ci-nof" secondAttribute="leading" id="EvR-E1-K9l"/>
+                            <constraint firstItem="hdw-ZC-V4i" firstAttribute="top" secondItem="ASE-ci-nof" secondAttribute="bottom" constant="45" id="FEE-MF-skz"/>
                             <constraint firstItem="ojR-XQ-Fu1" firstAttribute="leading" secondItem="ASE-ci-nof" secondAttribute="trailing" constant="14" id="IIC-5t-cyJ"/>
                             <constraint firstItem="yhP-DN-GYJ" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leadingMargin" id="L6w-wf-5fb"/>
-                            <constraint firstItem="72D-bh-rlJ" firstAttribute="centerY" secondItem="060-P0-JB9" secondAttribute="centerY" id="OZv-5D-i1y"/>
-                            <constraint firstItem="060-P0-JB9" firstAttribute="leading" secondItem="ojR-XQ-Fu1" secondAttribute="leading" id="Qhx-Dv-rKv"/>
                             <constraint firstItem="ASE-ci-nof" firstAttribute="leading" secondItem="yhP-DN-GYJ" secondAttribute="leading" id="XuV-2F-Soa"/>
-                            <constraint firstItem="72D-bh-rlJ" firstAttribute="top" secondItem="ASE-ci-nof" secondAttribute="bottom" constant="11" id="aLx-w0-pi1"/>
                             <constraint firstItem="ASE-ci-nof" firstAttribute="top" secondItem="qkL-Od-lgU" secondAttribute="bottom" constant="8" symbolic="YES" id="dLU-TK-OCl"/>
-                            <constraint firstItem="72D-bh-rlJ" firstAttribute="leading" secondItem="hdw-ZC-V4i" secondAttribute="leading" id="dw4-PH-Ewy"/>
                             <constraint firstItem="YBw-OM-OhZ" firstAttribute="baseline" secondItem="yhP-DN-GYJ" secondAttribute="baseline" id="kFf-1O-guQ"/>
                             <constraint firstItem="ygN-x6-aa1" firstAttribute="leading" secondItem="zMn-AG-sqS" secondAttribute="leading" constant="99" id="qvf-v0-J2E"/>
-                            <constraint firstItem="ygN-x6-aa1" firstAttribute="top" secondItem="060-P0-JB9" secondAttribute="bottom" constant="6" id="t0J-be-uc4"/>
                             <constraint firstItem="hdw-ZC-V4i" firstAttribute="centerY" secondItem="ygN-x6-aa1" secondAttribute="centerY" id="tiJ-EH-pN5"/>
                             <constraint firstAttribute="bottom" secondItem="yhP-DN-GYJ" secondAttribute="bottom" constant="20" symbolic="YES" id="vEe-BN-N1L"/>
                             <constraint firstItem="ojR-XQ-Fu1" firstAttribute="centerY" secondItem="ASE-ci-nof" secondAttribute="centerY" id="vXp-ah-1tb"/>
@@ -98,7 +80,6 @@
                     <connections>
                         <outlet property="rtmpUrl" destination="ojR-XQ-Fu1" id="foy-pU-NOr"/>
                         <outlet property="videoCodec" destination="ygN-x6-aa1" id="fgg-d3-QHs"/>
-                        <outlet property="videoResolution" destination="060-P0-JB9" id="zAa-jI-TbU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -6,7 +6,6 @@
 //  Copyright © 2016 ksyun. All rights reserved.
 //
 
-
 #import "SampleHandler.h"
 #import "KSYRKStreamerKit.h"
 
@@ -55,17 +54,12 @@
             [kit.streamerBase processVideoSampleBuffer:sampleBuffer];
             break;
         case RPSampleBufferTypeAudioApp:
-//            NSLog(@"appaudio %@",sampleBuffer);
-//            [kit mixAudio:sampleBuffer to:kit.appTrack];
             break;
         case RPSampleBufferTypeAudioMic:
-//            NSLog(@"micaudio %@",sampleBuffer);
             [kit mixAudio:sampleBuffer to:kit.micTrack];
             break;
         default:
             break;
     }
-    NSLog(@"fps: %f %d", kit.streamerBase.encodingFPS, sampleBufferType);
 }
-
 @end

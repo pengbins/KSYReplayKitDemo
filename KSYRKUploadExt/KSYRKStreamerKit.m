@@ -8,7 +8,6 @@
 
 
 #import "KSYRKStreamerKit.h"
-#import "libksygpulive/libksygpulive.h"
 
 @interface KSYRKStreamerKit(){
 }
@@ -28,7 +27,6 @@
 
 - (id) initWithDefaultCfg {
     self = [super init];
-    NSLog(@"init KSYRKStreamerKit");
     _rtmpUrl = nil;
     // 创建 推流模块
     _streamerBase = [[KSYStreamerBase alloc] initWithDefaultCfg];
@@ -61,34 +59,11 @@
  */
 - (void) startStream : (NSURL*) url {
     _rtmpUrl = url;
-    _streamerBase.encodeDimension = [self getVideoDimension];
     _streamerBase.videoCodec = [self getVideoCodec];
+    _streamerBase.audioCodec = KSYAudioCodec_AT_AAC;
     [_streamerBase startStream:url];
 }
 
-#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-
-- (CGSize) getVideoDimension{
-    NSString * str = _videoResolution;
-    if (IS_IPHONE) {
-        if ([str isEqualToString:@"540p"]) {
-            return CGSizeMake(960, 540);
-        }
-        else {
-            return CGSizeMake(640, 360);
-        }
-    }
-    else {
-        if ([str isEqualToString:@"540p"]) {
-            return CGSizeMake(720, 540);
-        }
-        else {
-            return CGSizeMake(480, 360);
-        }
-    }
-    return CGSizeMake(0, 0);
-}
 - (KSYVideoCodec) getVideoCodec{
     if ([_videoCodec isEqualToString:@"hard"]) {
         return KSYVideoCodec_AUTO;
@@ -97,6 +72,7 @@
         return KSYVideoCodec_X264;
     }
 }
+
 - (void) addObservers {
     //KSYStreamer state changes
     NSNotificationCenter* dc = [NSNotificationCenter defaultCenter];
@@ -123,7 +99,8 @@
 - (void) onStreamError:(KSYStreamErrorCode) errCode{
     NSLog(@"stream Error %@", [_streamerBase getCurKSYStreamErrorCodeName]);
     if (errCode == KSYStreamErrorCode_CONNECT_BREAK ||
-        errCode == KSYStreamErrorCode_ENCODE_FRAMES_FAILED) {
+        errCode == KSYStreamErrorCode_ENCODE_FRAMES_FAILED ||
+        errCode == KSYStreamErrorCode_CODEC_OPEN_FAILED) {
         // Reconnect
         dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
         dispatch_after(delay, dispatch_get_main_queue(), ^{
@@ -141,9 +118,7 @@
     if (![_streamerBase isStreaming]){
         return;
     }
-    CFRetain(buf);
     [_aMixer processAudioSampleBuffer:buf of:idx];
-    CFRelease(buf);
 }
 // 组装声音通道
 - (void) setupAudioPath {
