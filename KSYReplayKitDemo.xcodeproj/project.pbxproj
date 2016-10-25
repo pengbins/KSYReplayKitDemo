@@ -169,8 +169,8 @@
 		06CA4B5A1D9C0203006F3AD3 /* KSYRKUploadExt */ = {
 			isa = PBXGroup;
 			children = (
-				06DDC3971D9E335E0014B545 /* KSYRKStreamerKit.m */,
 				06DDC3981D9E335E0014B545 /* KSYRKStreamerKit.h */,
+				06DDC3971D9E335E0014B545 /* KSYRKStreamerKit.m */,
 				06CA4B5E1D9C0203006F3AD3 /* SampleHandler.h */,
 				06CA4B5F1D9C0203006F3AD3 /* SampleHandler.m */,
 				06CA4B611D9C0203006F3AD3 /* Info.plist */,

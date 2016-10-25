@@ -51,6 +51,16 @@
     self.overlayWindow.userInteractionEnabled = NO;
     self.overlayWindow.backgroundColor = nil;
     self.overlayWindow.rootViewController = rootViewController;
+    
+    RPScreenRecorder * recorder = [RPScreenRecorder sharedRecorder];
+    
+    if([recorder respondsToSelector:@selector(setCameraEnabled:)]) {
+        // This test will fail on devices < iOS 9
+        [RPScreenRecorder sharedRecorder].microphoneEnabled = YES;
+        [RPScreenRecorder sharedRecorder].cameraEnabled = YES;
+        [[AVAudioSession sharedInstance] requestRecordPermission: ^(BOOL granted){
+        }];
+    }
 }
 
 - (void) setupCamera {
@@ -73,17 +83,6 @@
 
 
 - (void)onTimer:(NSTimer *)theTimer{
-//    static int pos = 0;
-//    int wdt = self.view.frame.size.width - 164 - 30;
-//    pos = (pos +1)% wdt;
-//    CGRect btnRect = _btnShare.frame;
-//    btnRect.origin.x = pos + 30;
-//    _btnShare.frame = btnRect;
-//    
-//    if (self.broadcastController &&  pos % 10 == 0) {
-//        NSLog(@"broadcast %d %@", self.broadcastController.broadcasting,
-//              self.broadcastController.broadcastURL.absoluteString);
-//    }
 }
 
 - (void)pressBtn: (UIButton*)btn {
