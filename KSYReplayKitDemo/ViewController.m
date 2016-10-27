@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <ReplayKit/ReplayKit.h>
-#import <GPUImage/GPUImage.h>
+
 #import "ViewController.h"
 
 #define SYSTEM_VERSION_GE_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -15,11 +15,10 @@
 @interface ViewController ()<RPBroadcastActivityViewControllerDelegate, RPBroadcastControllerDelegate> {
 }
 @property (nonatomic, strong) UIButton * btnShare;
-@property (nonatomic, weak) RPBroadcastController *broadcastController;
+@property (nonatomic, weak)   RPBroadcastController *broadcastController;
 @property (nonatomic, strong) UIWindow *overlayWindow;
+@property (nonatomic, weak)   UIView   *cameraPreview;
 @property NSTimer *timer;
-@property (nonatomic, strong) GPUImageView * cameraView;
-@property (nonatomic, strong) GPUImageVideoCamera * vCapDev;
 @end
 
 @implementation ViewController
@@ -41,7 +40,6 @@
                                              userInfo:nil
                                               repeats:YES];
     
-    [self setupCamera];
 }
 
 - (void)setupBroadcastUI {
@@ -61,19 +59,6 @@
         [[AVAudioSession sharedInstance] requestRecordPermission: ^(BOOL granted){
         }];
     }
-}
-
-- (void) setupCamera {
-    _cameraView = [[GPUImageView alloc] init];
-    [self.view addSubview:_cameraView];
-    _cameraView.frame  = CGRectMake(30, 330, 164, 164);
-    
-    _vCapDev = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetLow cameraPosition:AVCaptureDevicePositionFront];
-    
-    _vCapDev.outputImageOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-    [_vCapDev addAudioInputsAndOutputs];
-    [_vCapDev addTarget:_cameraView];
-    [_vCapDev startCameraCapture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,8 +101,6 @@
 - (void)broadcastActivityViewController:(RPBroadcastActivityViewController *) broadcastActivityViewController
        didFinishWithBroadcastController:(RPBroadcastController *)broadcastController
                                   error:(NSError *)error {
-    
-    
     [broadcastActivityViewController dismissViewControllerAnimated:YES
                                                         completion:nil];
     NSLog(@"BundleID %@", broadcastController.broadcastExtensionBundleID);
@@ -131,24 +114,22 @@
     }
     __weak ViewController* bSelf = self;
     [broadcastController startBroadcastWithHandler:^(NSError * _Nullable error) {
-        NSLog(@"broadcastControllerHandler");
         if (!error) {
             bSelf.broadcastController.delegate = self;
+            bSelf.btnShare.backgroundColor = [UIColor greenColor];
+            
+            UIView* cameraView = [[RPScreenRecorder sharedRecorder] cameraPreviewView];
+            bSelf.cameraPreview = cameraView;
+            if(cameraView) {
+                cameraView.frame = CGRectMake(30, 300, 164, 164);
+                [bSelf.view addSubview:cameraView];
+            }
         }
         else {
-            UIAlertController *alertC;
-            alertC = [[alertC class] alertControllerWithTitle:@"Error"
-                                                      message:error.localizedDescription
-                                               preferredStyle:UIAlertControllerStyleAlert];
-            [alertC addAction:[UIAlertAction actionWithTitle:@"Ok"
-                                                       style:UIAlertActionStyleCancel
-                                                     handler:nil]];
-            [self presentViewController:alertC
-                               animated:YES
-                             completion:nil];
+            bSelf.btnShare.backgroundColor = [UIColor redColor];
+            NSLog(@"startBroadcast %@",error.localizedDescription);
         }
     }];
-
 }
 
 // Watch for service info from broadcast service

@@ -34,6 +34,7 @@
     // init cfgs
     _streamerBase.videoCodec = KSYVideoCodec_VT264;
     _streamerBase.audioCodec = KSYAudioCodec_AAC;
+    _streamerBase.audiokBPS  = 64;
     _streamerBase.videoMaxBitrate  = 800;
     _streamerBase.videoInitBitrate = 200;
     _streamerBase.videoMinBitrate  = 0;

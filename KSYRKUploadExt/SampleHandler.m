@@ -54,6 +54,7 @@
             [kit.streamerBase processVideoSampleBuffer:sampleBuffer];
             break;
         case RPSampleBufferTypeAudioApp:
+            [kit mixAudio:sampleBuffer to:kit.appTrack];
             break;
         case RPSampleBufferTypeAudioMic:
             [kit mixAudio:sampleBuffer to:kit.micTrack];
