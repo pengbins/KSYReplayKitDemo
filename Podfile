@@ -5,8 +5,8 @@ use_frameworks!
 target 'KSYRKUploadExt' do
 	pod 'GPUImage'
     #pod 'libksygpulive/libksygpulive',  :path => '../proj/KSYLive_iOS/'
-    #pod 'libksygpulive/libksygpulive',  :git => 'git@newgit.op.ksyun.com:sdk/KSYLive_iOS.git', :branch => 'Streamer_t1.8.3.1_636'
-    pod 'libksygpulive/libksygpulive',  :git => 'http://newgit.op.ksyun.com/sdk/KSYLive_iOS.git', :branch => 'Streamer_t1.8.3.1_636'
+    #pod 'libksygpulive/libksygpulive',  :git => 'git@newgit.op.ksyun.com:sdk/KSYLive_iOS.git', :branch => 'v1.8.6.0'
+    pod 'libksygpulive/libksygpulive',  :git => 'http://newgit.op.ksyun.com/sdk/KSYLive_iOS.git', :branch => 'v1.8.6.0'
 end
 
 target 'KSYReplayKitDemo' do
